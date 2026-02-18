@@ -12,6 +12,16 @@ git config --global user.email "you@email.com"  # Set your email
 git config --global credential.helper store     # Save credentials locally
 ```
 
+<h3>Cloning a Remote Repository</h3>
+
+If you choose to set up your Local Repo using the terminal, these commands will be helpful for you.
+
+```
+git clone https://github.com/username/repository.git                  # Basic Clone into New Folder
+git clone https://github.com/username/repository.git my-folder-name   # Clone into a Specific Folder of Your Choice
+git clone -b branch-name https://github.com/username/repository.git   # Clone a Specific Branch 
+```
+
 <h3>Staging & Committing</h3>
 
 Essential to the Git workflow, I'm sure you are familiar with these already.
@@ -70,3 +80,4 @@ git log --oneline             # Show condensed commit history
 git diff                      # Show unstaged changes
 git diff --staged             # Show staged changes not yet committed
 ```
+
