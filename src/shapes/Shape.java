@@ -7,7 +7,6 @@
 
 package shapes;
 
-public class SquarePrism
-{
+public abstract class Shape {
 
 }
