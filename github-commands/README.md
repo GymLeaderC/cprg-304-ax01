@@ -15,6 +15,7 @@ git config --global credential.helper store     # Save credentials locally
 <h3>Cloning a Remote Repository</h3>
 
 If you choose to set up your Local Repo using the terminal, these commands will be helpful for you.
+The Basic Clone command is probably all we'll need for this project.
 
 ```
 git clone https://github.com/username/repository.git                  # Basic Clone into New Folder
@@ -80,4 +81,5 @@ git log --oneline             # Show condensed commit history
 git diff                      # Show unstaged changes
 git diff --staged             # Show staged changes not yet committed
 ```
+
 
