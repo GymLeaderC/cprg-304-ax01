@@ -1,6 +1,7 @@
 <h1>Getting Started — Cloning the Repository in Eclipse</h1>
 
 <h2>Prerequisites</h2>
+
 Eclipse IDE installed on your machine
 
 Make sure you have Git installed and available on your system PATH
