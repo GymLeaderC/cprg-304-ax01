@@ -2,7 +2,9 @@
 
 <h2>Prerequisites</h2>
 Eclipse IDE installed on your machine
+
 Make sure you have Git installed and available on your system PATH
+
 You have access to the project repository (ensure you have been granted permissions)
 
 <h2>Steps</h2>
