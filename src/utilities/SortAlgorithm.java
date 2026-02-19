@@ -7,6 +7,17 @@
 
 package utilities;
 
-public interface SortAlgorithm {
+import java.util.Comparator;
 
+public interface SortAlgorithm {
+	
+	/* Sorts an array in descending order using the natural ordering
+     * defined by the elements' compareTo method (Comparable). */
+	
+	<T extends Comparable<T>> void sort(T[] array);
+	
+	/* Sorts an array in descending order using a provided Comparator
+    * to define the comparison strategy. */
+	
+	<T> void sort(T[] array, Comparator<? super T> comparator);
 }
