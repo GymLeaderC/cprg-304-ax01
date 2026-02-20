@@ -9,6 +9,10 @@ package utilities;
 
 import java.util.Comparator;
 
+/* Interface for sorting algorithms using the Strategy Design Pattern.
+ * Each implementing class provides its own sorting algorithm while
+ * following the same contract, allowing algorithms to be swapped at runtime. */
+
 public interface SortAlgorithm {
 	
 	/* Sorts an array in descending order using the natural ordering
