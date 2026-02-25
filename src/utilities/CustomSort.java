@@ -5,9 +5,10 @@
  *  Created: 02.18.2026
  */
 
-package shapes;
+package utilities;
 
-public class SquarePrism
-{
+// Name is a placeholder until we choose a sixth sorting algorithm
+
+public class CustomSort {
 
 }
