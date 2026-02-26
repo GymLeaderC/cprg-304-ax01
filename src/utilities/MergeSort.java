@@ -7,6 +7,22 @@
 
 package utilities;
 
-public class MergeSort {
+import java.util.Comparator;
+
+public class MergeSort implements SortAlgorithm{
+
+	@Override
+	public <T extends Comparable<T>> void sort(T[] array) {
+		if (array == null || array.length <2) 
+			return;
+		
+		
+	}
+
+	@Override
+	public <T> void sort(T[] array, Comparator<? super T> comparator) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
