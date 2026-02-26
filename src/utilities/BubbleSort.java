@@ -12,7 +12,7 @@ import java.util.Comparator;
 public class BubbleSort implements SortAlgorithm {
 	
 	@Override
-	public <T extends Comparable<T>> void sort(T[] array) {
+	public <T extends Comparable<? super T>> void sort(T[] array) {
 		
 		/* Outer Loop controls how many passes we make over the array.
 		 * Each Pass checks one fewer element. */

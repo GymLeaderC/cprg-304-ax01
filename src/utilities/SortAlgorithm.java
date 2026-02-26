@@ -18,7 +18,7 @@ public interface SortAlgorithm {
 	/* Sorts an array in descending order using the natural ordering
      * defined by the elements' compareTo method (Comparable). */
 	
-	<T extends Comparable<T>> void sort(T[] array);
+	<T extends Comparable<? super T>> void sort(T[] array);
 	
 	/* Sorts an array in descending order using a provided Comparator
     * to define the comparison strategy. */
