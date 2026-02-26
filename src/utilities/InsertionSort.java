@@ -12,7 +12,7 @@ import java.util.Comparator;
 public class InsertionSort implements SortAlgorithm {
 
 	@Override
-	public <T extends Comparable<T>> void sort(T[] array) {
+	public <T extends Comparable<? super T>> void sort(T[] array) {
 		
 		/* Outer loop keeps track of current element being sorted. */
 		
@@ -40,8 +40,28 @@ public class InsertionSort implements SortAlgorithm {
 
 	@Override
 	public <T> void sort(T[] array, Comparator<? super T> comparator) {
-		// TODO Auto-generated method stub
-		
-	}
 
+		/* Outer loop keeps track of current element being sorted. */
+		
+		for (int i = 1; i < array.length; i++) {
+			T value = array[i];
+			
+			/* Inner loop compares current element to the previous element. */
+			
+			for (int j = i - 1; j >= 0; j--) {
+				
+				/* If the current element is greater than the previous element,
+				 * swap the elements. If not, the current element is in the
+				 * correct position and the inner loop breaks to move on to
+				 * the next element in the array. */
+				
+				if (comparator.compare(value, array[j]) > 0) {
+					array[j + 1] = array[j];
+					array[j] = value;
+				} else {
+					break;
+				}
+			}
+		}
+	}
 }
