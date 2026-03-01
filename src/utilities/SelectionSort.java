@@ -13,7 +13,7 @@ package utilities;
 
 import java.util.Comparator;
 
-public class SelectionSort {
+public class SelectionSort implements SortAlgorithm {
 
     /**
      * Sorts by volume or base area using a Comparator.
@@ -22,7 +22,8 @@ public class SelectionSort {
      * @param shapes     the array to sort (descending)
      * @param comparator the comparison rule to use (volume or base area)
      */
-    public static <T> void selectionSort(T[] shapes, Comparator<T> comparator) {
+    @Override
+    public <T> void sort(T[] shapes, Comparator<? super T> comparator) {
         int size = shapes.length;
 
         for (int sorted = 0; sorted < size - 1; sorted++) {
@@ -43,12 +44,13 @@ public class SelectionSort {
     }
 
     /**
-     * Sorts by height using Comparable (aka - the shape's natural ordering).
-     * No Comparator needed
+     * Sorts by height using Comparable (the shape's natural ordering).
+     * No Comparator needed — the shape knows how to compare itself.
      *
      * @param shapes the array to sort (descending)
      */
-    public static <T extends Comparable<T>> void selectionSort(T[] shapes) {
+    @Override
+    public <T extends Comparable<? super T>> void sort(T[] shapes) {
         int size = shapes.length;
 
         for (int sorted = 0; sorted < size - 1; sorted++) {
