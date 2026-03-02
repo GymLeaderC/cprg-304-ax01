@@ -38,6 +38,54 @@ public class AppDriver
 		// refer to demo02 KittySort.java on how to use a custom sorting
 		// algorithm on a list of comparables to sort using either the
 		// natural order (comparable) or other orders (comparators)
+		
+		
+		
+		
+		// -----------------------------
+		// Command-line variables
+		String fileName = null;
+		char compareType = ' ';
+		char sortType = ' ';
+		
+		// Assign command-line arguments
+		for (String arg: args) {
+			arg = arg.toLowerCase();
+			
+			// Assign filename
+			if (arg.startsWith("-f")) {
+				fileName = arg.substring(2);
+			}
+			
+			// Assign compare-type
+			// (Compare by height (h), volume (v), or base area (a))
+			else if (arg.startsWith("-t")) {
+				compareType = arg.charAt(2);
+			}
+			
+			// Assign sort-type
+			// (Sort using bubble (b), selection (s), insertion (i), merge (m), quick (q), or shell (z))
+			else if (arg.startsWith("-s")) {
+				sortType = arg.charAt(2);
+			}
+			
+			// Invalid input
+			else {
+				System.out.println("Invalid command-line input: \"" + arg + "\"");
+			}
+		}
+		
+		// Validate compare-type and sort-type user inputs
+		// (Assume user will provide the correct absolute or relative file path)
+		if ("hva".indexOf(compareType) == -1) {
+			System.out.println("Invalid compare type");
+			System.out.println("Valid compare options: height (h), volume (v), or base area (a)\n");
+		}
+		if ("bsimqz".indexOf(sortType) == -1) {
+			System.out.println("Invalid sort type");
+			System.out.println("Valid sort options: bubble (b), selection (s), insertion (i), merge (m), quick (q), or shell (z)\n");
+		}
+		
 
 	}
 
