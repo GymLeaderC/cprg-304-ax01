@@ -9,6 +9,6 @@ package utilities;
 
 // Name is a placeholder until we choose a sixth sorting algorithm
 
-public class ShellSort {
+public class ShellSort implements SortAlgorithm {
 
 }
