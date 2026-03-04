@@ -9,6 +9,6 @@ package utilities;
 
 // Name is a placeholder until we choose a sixth sorting algorithm
 
-public class CustomSort {
+public class ShellSort {
 
 }
