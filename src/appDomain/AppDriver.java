@@ -7,6 +7,7 @@
 
 package appDomain;
 
+import java.util.Comparator;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,36 +23,17 @@ import utilities.*;
  * to add all the correct functionality.
  * </p>
  */
-public class AppDriver
-{
+public class AppDriver {
 	/**
-	 *  The main method is the entry point of the application.
-	 *  
+	 *  The main method is the entry point of the application
 	 *  @param args The input to control the execution of the application.
 	 *  @throws FileNotFoundException 
 	 */
-	public static void main( String[] args ) throws FileNotFoundException
-	{
-		// TODO Auto-generated method stub
-
-		// refer to demo00 BasicFileIO.java for a simple example on how to
-		// read data from a text file
-
-		// refer to demo01 Test.java for an example on how to parse command
-		// line arguments and benchmarking tests
-
-		// refer to demo02 Student.java for comparable implementation, and
-		// NameCompare.java or GradeCompare for comparator implementations
-
-		// refer to demo02 KittySort.java on how to use a custom sorting
-		// algorithm on a list of comparables to sort using either the
-		// natural order (comparable) or other orders (comparators)
+	public static void main( String[] args ) throws FileNotFoundException {
 		
+		// ----------------------
+		// Command-line Variables
 		
-		
-		
-		// -----------------------------
-		// Command-line variables
 		String fileName = null;
 		char compareType = ' ';
 		char sortType = ' ';
@@ -83,7 +65,20 @@ public class AppDriver
 			}
 		}
 		
-		// -----------------------------
+		// Validate compare-type and sort-type user inputs
+		// (Assume user will provide the correct absolute or relative file path)
+		if ("hva".indexOf(compareType) == -1) {
+			System.out.println("Invalid compare type");
+			System.out.println("Valid compare options: height (h), volume (v), or base area (a)\n");
+			return;
+		}
+		if ("bsimqz".indexOf(sortType) == -1) {
+			System.out.println("Invalid sort type");
+			System.out.println("Valid sort options: bubble (b), selection (s), insertion (i), merge (m), quick (q), or shell (z)\n");
+			return;
+		}
+		
+		// -------------------------------
 		// File Reading and Shape Creation
 		
 		// Declare shapes array for use after file reading
@@ -100,7 +95,7 @@ public class AppDriver
                 String[] parts = line.split(" ");
                 
                 // Create the correct shape object by type
-                switch (parts[0]) {
+                switch ( parts[0] ) {
                     case "Cone":
                         shapes[i] = new Cone( Double.parseDouble(parts[1]), Double.parseDouble(parts[2]) );
                         break;
@@ -126,18 +121,89 @@ public class AppDriver
             }
         }
 		
-		// Validate compare-type and sort-type user inputs
-		// (Assume user will provide the correct absolute or relative file path)
-		if ("hva".indexOf(compareType) == -1) {
-			System.out.println("Invalid compare type");
-			System.out.println("Valid compare options: height (h), volume (v), or base area (a)\n");
-		}
-		if ("bsimqz".indexOf(sortType) == -1) {
-			System.out.println("Invalid sort type");
-			System.out.println("Valid sort options: bubble (b), selection (s), insertion (i), merge (m), quick (q), or shell (z)\n");
+		// --------------------------------------------
+		// Sorting Algorithm Selection and Benchmarking
+		
+		SortAlgorithm sorter = null;
+		
+		// Select sorting algorithm based on user input
+		switch ( sortType ) {
+			case 'b': sorter = new BubbleSort(); 
+				break;
+			case 'i': sorter = new InsertionSort();
+				break;
+			case 'm': sorter = new MergeSort();
+				break;
+			case 'q': sorter = new QuickSort();
+				break;
+			case 's': sorter = new SelectionSort();
+				break;
+			case 'z': sorter = new ShellSort();
+				break;
 		}
 		
+		// Record start time before sorting
+		long start = System.currentTimeMillis();
+		
+		// Sort shapes using selected comparison strategy
+		if ( compareType == 'h' ) {
+			sorter.sort(shapes);
+		}
+		else if ( compareType == 'a' ) {
+			sorter.sort(shapes, new BaseAreaComparator());
+		} else {
+			sorter.sort(shapes, new VolumeComparator());
+		}
+		
+		// Record end time
+		long end = System.currentTimeMillis();
+		
+		// -----------------------------
+		// Displaying Results to Console
+		
 
+		// Set display label based on comparison type
+		String compareString = null;
+		if (compareType == 'h') {
+		    compareString = "Height: ";
+		} else if (compareType == 'a') {
+		    compareString = "Area: ";
+		} else {
+		    compareString = "Volume: ";
+		}
+		
+		// Print the first element in the array
+		System.out.println("First element is: " + shapes[0] + " " + compareString + " " + getValue(shapes[0], compareType));
+		
+		// Print each thousandth element in the array
+		for (int i = 999; i < shapes.length; i = i + 1000) {
+			System.out.println((i + 1) + "-th element: " + shapes[i] + " " + compareString + " " + getValue(shapes[i], compareType));
+		}
+		
+		// Print the last element in the array only if the loop DID NOT already print it
+		int lastIndex = shapes.length - 1;
+		if (lastIndex % 1000 != 999) {
+			System.out.println("Last element is: " + shapes[shapes.length - 1] + " " + compareString + " " + getValue(shapes[shapes.length - 1], compareType));
+		}
+		
+		// Print the run time
+		System.out.println(sortType + " run time was: " + (end - start) + " milliseconds");
+	}
+		
+	/**
+	 * Returns the comparison value for a shape based on the compare type.
+	 * @param shape The shape to get the value from.
+	 * @param compareType The comparison type (h, a, or v).
+	 * @return The height, base area, or volume of the shape.
+	 */
+	private static double getValue(Shape shape, char compareType) {
+		if (compareType == 'h') {
+			return shape.getHeight();
+		} else if (compareType == 'a') {
+			return shape.calcBaseArea();
+		} else {
+			return shape.calcVolume();
+		}
 	}
 
 }

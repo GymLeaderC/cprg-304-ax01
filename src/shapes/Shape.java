@@ -49,4 +49,11 @@ public abstract class Shape implements Comparable<Shape> {
 	public void setHeight(double height) {
 		this.height = height;
 	}
+
+	@Override
+	public String toString() {
+		return "getClass().getName()";
+	}
+	
+	
 }
