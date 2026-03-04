@@ -7,6 +7,13 @@
 
 package appDomain;
 
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
+import shapes.*;
+import utilities.*;
+
 /**
  * <p>
  * This application driver code is designed to be used as a basis for the
@@ -21,8 +28,9 @@ public class AppDriver
 	 *  The main method is the entry point of the application.
 	 *  
 	 *  @param args The input to control the execution of the application.
+	 *  @throws FileNotFoundException 
 	 */
-	public static void main( String[] args )
+	public static void main( String[] args ) throws FileNotFoundException
 	{
 		// TODO Auto-generated method stub
 
@@ -74,6 +82,49 @@ public class AppDriver
 				System.out.println("Invalid command-line input: \"" + arg + "\"");
 			}
 		}
+		
+		// -----------------------------
+		// File Reading and Shape Creation
+		
+		// Declare shapes array for use after file reading
+		Shape[] shapes = null;
+		
+		// Open file, read shape count, create array
+		try (Scanner scanner = new Scanner(new File(fileName))) {
+            int numOfShapes = Integer.parseInt(scanner.nextLine().trim());
+            shapes = new Shape[numOfShapes];
+        
+            // Loop through each line, split into parts
+            for ( int i=0 ; i < numOfShapes ; i++ ) {
+                String line = scanner.nextLine();
+                String[] parts = line.split(" ");
+                
+                // Create the correct shape object by type
+                switch (parts[0]) {
+                    case "Cone":
+                        shapes[i] = new Cone( Double.parseDouble(parts[1]), Double.parseDouble(parts[2]) );
+                        break;
+                    case "Cylinder":
+                        shapes[i] = new Cylinder( Double.parseDouble(parts[1]), Double.parseDouble(parts[2]) );
+                        break;
+                    case "OctagonalPrism":
+                        shapes[i] = new OctagonalPrism( Double.parseDouble(parts[1]), Double.parseDouble(parts[2]) );
+                        break;
+                    case "PentagonalPrism":
+                        shapes[i] = new PentagonalPrism( Double.parseDouble(parts[1]), Double.parseDouble(parts[2]) );
+                        break;
+                    case "Pyramid":
+                        shapes[i] = new Pyramid( Double.parseDouble(parts[1]), Double.parseDouble(parts[2]) );
+                        break;
+                    case "SquarePrism":
+                        shapes[i] = new SquarePrism( Double.parseDouble(parts[1]), Double.parseDouble(parts[2]) );
+                        break;
+                    case "TriangularPrism":
+                        shapes[i] = new TriangularPrism( Double.parseDouble(parts[1]), Double.parseDouble(parts[2]) );
+                        break;
+                }
+            }
+        }
 		
 		// Validate compare-type and sort-type user inputs
 		// (Assume user will provide the correct absolute or relative file path)
