@@ -12,13 +12,10 @@ package shapes;
 
 public class TriangularPrism extends Prism {
 
-    private double edgeLength;
-
     /**
      * Constructs a TriangularPrism with the given height and base edge length.
      *
      * @param height     the height of the prism
-     * @param edgeLength the length of one side of the equilateral triangle base
      */
     public TriangularPrism(double height, double side) {
         super(height, side);
@@ -32,11 +29,7 @@ public class TriangularPrism extends Prism {
      */
     @Override
     public double calcBaseArea() {
-        return (edgeLength * edgeLength * Math.sqrt(3)) / 4;
-    }
-
-    @Override
-    public String toString() {
-        return "shapes.TriangularPrism";
+    	double s = getSide();
+        return (s * s * Math.sqrt(3)) / 4;
     }
 }

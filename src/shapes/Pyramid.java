@@ -54,9 +54,4 @@ public class Pyramid extends Shape {
     public void setEdgeLength(double edgeLength) {
         this.edgeLength = edgeLength;
     }
-
-    @Override
-    public String toString() {
-        return "shapes.Pyramid";
-    }
 }

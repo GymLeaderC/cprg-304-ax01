@@ -52,7 +52,7 @@ public abstract class Shape implements Comparable<Shape> {
 
 	@Override
 	public String toString() {
-		return "getClass().getName()";
+		return getClass().getName();
 	}
 	
 	

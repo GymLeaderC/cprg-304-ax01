@@ -7,7 +7,6 @@
 
 package appDomain;
 
-import java.util.Comparator;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
