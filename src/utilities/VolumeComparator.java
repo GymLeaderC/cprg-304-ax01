@@ -16,7 +16,7 @@ public class VolumeComparator implements Comparator<Shape>{
 	@Override
 	public int compare(Shape o1, Shape o2) {
 		// TODO Auto-generated method stub
-		return 0;
+		return Double.compare(o1.calcVolume(), o2.calcVolume());
 	}
 
 }
