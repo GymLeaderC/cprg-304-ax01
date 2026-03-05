@@ -12,13 +12,10 @@ package shapes;
 
 public class SquarePrism  extends Prism{
 
-    private double edgeLength;
-
     /**
      * Constructs a SquarePrism with the given height and base edge length.
      *
      * @param height     the height of the prism
-     * @param edgeLength the length of one side of the square base
      */
     public SquarePrism(double height, double side) {
         super(height, side);
@@ -32,11 +29,7 @@ public class SquarePrism  extends Prism{
      */
     @Override
     public double calcBaseArea() {
-        return edgeLength * edgeLength;
-    }
-
-    @Override
-    public String toString() {
-        return "shapes.SquarePrism";
+    	double s = getSide();
+        return s * s;
     }
 }
