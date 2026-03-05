@@ -10,7 +10,7 @@
 
 package shapes;
 
-public class TriangularPrism extends Shape {
+public class TriangularPrism extends Prism {
 
     private double edgeLength;
 
@@ -20,9 +20,8 @@ public class TriangularPrism extends Shape {
      * @param height     the height of the prism
      * @param edgeLength the length of one side of the equilateral triangle base
      */
-    public TriangularPrism(double height, double edgeLength) {
-        super(height);
-        this.edgeLength = edgeLength;
+    public TriangularPrism(double height, double side) {
+        super(height, side);
     }
 
     /**
@@ -34,25 +33,6 @@ public class TriangularPrism extends Shape {
     @Override
     public double calcBaseArea() {
         return (edgeLength * edgeLength * Math.sqrt(3)) / 4;
-    }
-
-    /**
-     * Calculates the volume of the prism.
-     * Formula: calcBaseArea() * h
-     *
-     * @return the volume of the prism
-     */
-    @Override
-    public double calcVolume() {
-        return calcBaseArea() * height;
-    }
-
-    public double getEdgeLength() {
-        return edgeLength;
-    }
-
-    public void setEdgeLength(double edgeLength) {
-        this.edgeLength = edgeLength;
     }
 
     @Override

@@ -10,7 +10,7 @@
 
 package shapes;
 
-public class SquarePrism extends Shape {
+public class SquarePrism  extends Prism{
 
     private double edgeLength;
 
@@ -20,9 +20,8 @@ public class SquarePrism extends Shape {
      * @param height     the height of the prism
      * @param edgeLength the length of one side of the square base
      */
-    public SquarePrism(double height, double edgeLength) {
-        super(height);
-        this.edgeLength = edgeLength;
+    public SquarePrism(double height, double side) {
+        super(height, side);
     }
 
     /**
@@ -34,25 +33,6 @@ public class SquarePrism extends Shape {
     @Override
     public double calcBaseArea() {
         return edgeLength * edgeLength;
-    }
-
-    /**
-     * Calculates the volume of the prism.
-     * Formula: s² * h
-     *
-     * @return the volume of the prism
-     */
-    @Override
-    public double calcVolume() {
-        return calcBaseArea() * height;
-    }
-
-    public double getEdgeLength() {
-        return edgeLength;
-    }
-
-    public void setEdgeLength(double edgeLength) {
-        this.edgeLength = edgeLength;
     }
 
     @Override
