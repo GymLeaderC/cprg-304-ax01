@@ -171,22 +171,40 @@ public class AppDriver {
 		    compareString = "Volume: ";
 		}
 		
-		// Print the first element in the array
-		System.out.println("First element is: " + shapes[0] + " " + compareString + " " + getValue(shapes[0], compareType));
+		// Set sort type label based on sort type
+		String sortString = null;
 		
-		// Print each thousandth element in the array
-		for (int i = 999; i < shapes.length; i = i + 1000) {
-			System.out.println((i + 1) + "-th element: " + shapes[i] + " " + compareString + " " + getValue(shapes[i], compareType));
+		switch ( sortType ) {
+			case 'b': sortString = "Bubble Sort"; 
+				break;
+			case 'i': sortString = "Insertion Sort";
+				break;
+			case 'm': sortString = "Merge Sort";
+				break;
+			case 'q': sortString = "Quick Sort";
+				break;
+			case 's': sortString = "Selection Sort";
+				break;
+			case 'z': sortString = "Shell Sort";
+				break;
 		}
 		
+		// Print the first element in the array
+		System.out.printf("%-22s %30s  %15s %s%n", "First element is:", shapes[0], compareString, getValue(shapes[0], compareType));
+
+		// Print each thousandth element in the array
+		for (int i = 999; i < shapes.length; i = i + 1000) {
+		    System.out.printf("%-22s %30s  %15s %s%n", (i + 1) + "-th element:", shapes[i], compareString, getValue(shapes[i], compareType));
+		}
+
 		// Print the last element in the array only if the loop DID NOT already print it
 		int lastIndex = shapes.length - 1;
 		if (lastIndex % 1000 != 999) {
-			System.out.println("Last element is: " + shapes[shapes.length - 1] + " " + compareString + " " + getValue(shapes[shapes.length - 1], compareType));
+		    System.out.printf("%-22s %30s  %15s %s%n", "Last element is:", shapes[shapes.length - 1], compareString, getValue(shapes[shapes.length - 1], compareType));
 		}
 		
 		// Print the run time
-		System.out.println(sortType + " run time was: " + (end - start) + " milliseconds");
+		System.out.println(sortString + " run time was: " + (end - start) + " milliseconds");
 	}
 		
 	/**
