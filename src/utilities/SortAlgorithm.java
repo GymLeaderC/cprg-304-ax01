@@ -9,19 +9,29 @@ package utilities;
 
 import java.util.Comparator;
 
-/* Interface for sorting algorithms using the Strategy Design Pattern.
+/**
+ * Interface for sorting algorithms using the Strategy Design Pattern.
  * Each implementing class provides its own sorting algorithm while
- * following the same contract, allowing algorithms to be swapped at runtime. */
-
+ * following the same contract, allowing algorithms to be swapped at runtime.
+ */
 public interface SortAlgorithm {
 	
-	/* Sorts an array in descending order using the natural ordering
-     * defined by the elements' compareTo method (Comparable). */
-	
+	/**
+     * Sorts an array in descending order using the natural ordering
+     * defined by each element's {@link Comparable#compareTo(Object)} method.
+     *
+     * @param <T>   the type of elements in the array, must implement {@link Comparable}
+     * @param array the array to be sorted
+     */
 	<T extends Comparable<? super T>> void sort(T[] array);
 	
-	/* Sorts an array in descending order using a provided Comparator
-    * to define the comparison strategy. */
-	
+	/**
+     * Sorts an array in descending order using a provided {@link Comparator}
+     * to define the comparison strategy.
+     *
+     * @param <T>        the type of elements in the array
+     * @param array      the array to be sorted
+     * @param comparator the comparator used to determine element ordering
+     */
 	<T> void sort(T[] array, Comparator<? super T> comparator);
 }
