@@ -32,7 +32,8 @@ public class MergeSort implements SortAlgorithm {
         merge(array, left, mid, right);
     }
 
-    private <T extends Comparable<? super T>> void merge(
+    @SuppressWarnings("unchecked")
+	private <T extends Comparable<? super T>> void merge(
             T[] array, int left, int mid, int right) {
 
         Object[] temp = new Object[right - left + 1];
@@ -43,7 +44,7 @@ public class MergeSort implements SortAlgorithm {
 
         // Merge both halves
         while (i <= mid && j <= right) {
-            if (array[i].compareTo(array[j]) <= 0)
+            if (array[i].compareTo(array[j]) >= 0)
                 temp[k++] = array[i++];
             else
                 temp[k++] = array[j++];
@@ -85,7 +86,8 @@ public class MergeSort implements SortAlgorithm {
         merge(array, left, mid, right, comparator);
     }
 
-    private <T> void merge(
+    @SuppressWarnings("unchecked")
+	private <T> void merge(
             T[] array, int left, int mid, int right,
             Comparator<? super T> comparator) {
 
@@ -96,7 +98,7 @@ public class MergeSort implements SortAlgorithm {
         int k = 0;
 
         while (i <= mid && j <= right) {
-            if (comparator.compare(array[i], array[j]) <= 0)
+            if (comparator.compare(array[i], array[j]) >= 0)
                 temp[k++] = array[i++];
             else
                 temp[k++] = array[j++];
