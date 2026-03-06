@@ -1,8 +1,12 @@
 /**
- *  @author Team Sidon - Aaron Reid, Joshua Couto, Kaley Wood, Ryan Burns
- *  Southern Alberta Institute of Technology: CPRG-304-B
- *  Assignment 1: Complexity & Sorting
- *  Created: 02.18.2026
+ * @author Team Sidon - Aaron Reid, Joshua Couto, Kaley Wood, Ryan Burns
+ * Southern Alberta Institute of Technology: CPRG-304-B
+ * Assignment 1: Complexity & Sorting
+ * Created: 02.18.2026
+ *
+ * Prism — abstract base for all prism shapes. Holds the shared side field
+ * and handles volume calculation, since every prism is just baseArea * height.
+ * Subclasses only need to define their own calcBaseArea().
  */
 
 package shapes;

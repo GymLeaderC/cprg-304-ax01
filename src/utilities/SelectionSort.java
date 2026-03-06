@@ -63,6 +63,7 @@ public class SelectionSort implements SortAlgorithm {
                 }
             }
 
+            // if we found something bigger than what's at `sorted`, swap them
             if (currentLargest != sorted) {
                 swap(shapes, sorted, currentLargest);
             }
@@ -71,6 +72,10 @@ public class SelectionSort implements SortAlgorithm {
 
     /**
      * Swaps two elements in the array.
+     *
+     * @param shapes the array containing the elements to swap
+     * @param a      index of the first element
+     * @param b      index of the second element
      */
     private static <T> void swap(T[] shapes, int a, int b) {
         T temp = shapes[a];
