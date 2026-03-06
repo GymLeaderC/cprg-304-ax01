@@ -72,8 +72,10 @@ public class ShellSort implements SortAlgorithm {
             space = space * 3 + 1;
         }
 
+        // run a pass at each spacing, shrinking down to 1
         while (space >= 1) {
 
+            // pick up each shape and find where it belongs at this spacing
             for (int pickup = space; pickup < size; pickup++) {
                 T held = shapes[pickup];
 
@@ -84,9 +86,11 @@ public class ShellSort implements SortAlgorithm {
                     clearance -= space;
                 }
 
+                // place `held` in the space it cleared
                 shapes[clearance] = held;
             }
 
+            // next smaller spacing in the Knuth sequence
             space = space / 3;
         }
     }
