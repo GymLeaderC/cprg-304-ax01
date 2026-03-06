@@ -5,31 +5,32 @@
  * Created: 02.18.2026
  *
  * SquarePrism — a prism with a square base, defined by height and edge length.
- * Extends Shape and provides base area and volume calculations.
+ * Extends Prism, so volume is handled — only base area needs to be defined here.
  */
 
 package shapes;
 
-public class SquarePrism  extends Prism{
+public class SquarePrism extends Prism {
 
     /**
-     * Constructs a SquarePrism with the given height and base edge length.
+     * Passes both values up to Prism, which stores side and passes height to Shape.
      *
-     * @param height     the height of the prism
+     * @param height the height of the prism
+     * @param side   the edge length of the square base
      */
     public SquarePrism(double height, double side) {
         super(height, side);
     }
 
     /**
-     * Calculates the base area of the prism.
+     * Calculates the base area of the square face.
      * Formula: s²
      *
      * @return the area of the square base
      */
     @Override
     public double calcBaseArea() {
-    	double s = getSide();
+        double s = getSide();
         return s * s;
     }
 }

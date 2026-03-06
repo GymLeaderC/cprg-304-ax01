@@ -5,7 +5,7 @@
  * Created: 02.18.2026
  *
  * TriangularPrism — a prism with an equilateral triangle base, defined by height and edge length.
- * Extends Shape and provides base area and volume calculations.
+ * Extends Prism, so volume is handled — only base area needs to be defined here.
  */
 
 package shapes;
@@ -13,23 +13,24 @@ package shapes;
 public class TriangularPrism extends Prism {
 
     /**
-     * Constructs a TriangularPrism with the given height and base edge length.
+     * Passes both values up to Prism, which stores side and passes height to Shape.
      *
-     * @param height     the height of the prism
+     * @param height the height of the prism
+     * @param side   the edge length of the equilateral triangle base
      */
     public TriangularPrism(double height, double side) {
         super(height, side);
     }
 
     /**
-     * Calculates the base area of the prism.
-     * Formula: (s * s * Math.sqrt(3)) / 4
+     * Calculates the base area of the equilateral triangle face.
+     * Formula: (s² * √3) / 4
      *
      * @return the area of the equilateral triangle base
      */
     @Override
     public double calcBaseArea() {
-    	double s = getSide();
+        double s = getSide();
         return (s * s * Math.sqrt(3)) / 4;
     }
 }
