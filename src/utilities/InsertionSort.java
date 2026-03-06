@@ -1,8 +1,13 @@
 /**
- *  @author Team Sidon - Aaron Reid, Joshua Couto, Kaley Wood, Ryan Burns
- *  Southern Alberta Institute of Technology: CPRG-304-B
- *  Assignment 1: Complexity & Sorting
- *  Created: 02.18.2026
+ * @author Team Sidon - Aaron Reid, Joshua Couto, Kaley Wood, Ryan Burns
+ * Southern Alberta Institute of Technology: CPRG-304-B
+ * Assignment 1: Complexity & Sorting
+ * Created: 02.18.2026
+ * 
+ * InsertionSort - One-by-one, compares the selected element with previous
+ * elements to its left and swaps larger elements to the right until the
+ * correct position for the selected element is found.
+ * 
  */
 
 package utilities;
@@ -10,6 +15,12 @@ package utilities;
 import java.util.Comparator;
 
 public class InsertionSort implements SortAlgorithm {
+	
+	/**
+     * Sorts by height using Comparable (the shape's natural ordering).
+     *
+     * @param array - The array of shapes to sort in descending order
+     */
 
 	@Override
 	public <T extends Comparable<? super T>> void sort(T[] array) {
@@ -38,6 +49,14 @@ public class InsertionSort implements SortAlgorithm {
 		}
 	}
 
+	/**
+     * Sorts by volume or base area using a Comparator.
+     * Same spacing logic — the Comparator decides what "larger" means.
+     *
+     * @param array - The array of shapes to sort in descending order
+     * @param comparator - The comparison rule to apply (volume or base area)
+     */
+	
 	@Override
 	public <T> void sort(T[] array, Comparator<? super T> comparator) {
 
